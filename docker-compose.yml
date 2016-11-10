@@ -1,0 +1,17 @@
+ version: "2"
+ services:
+  webapp:
+    build: ./webapp 
+    volumes:
+     - ./webapp/webapp:/var/www/html
+    links:
+     - db:mysql
+    ports:
+     - "80:80"
+
+  db:
+    build: ./db
+    ports:
+     - "3306:3306"
+
+  
