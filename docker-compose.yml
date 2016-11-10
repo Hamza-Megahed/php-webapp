@@ -11,6 +11,8 @@
 
   db:
     build: ./db
+    environment:
+     - MYSQL_ROOT_PASSWORD=rootpass
     ports:
      - "3306:3306"
 
