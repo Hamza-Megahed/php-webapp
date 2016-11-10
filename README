@@ -1,0 +1,7 @@
+
+===
+Building Mysql
+===
+$ docker build -t test-db
+
+$ docker run --name database -e MYSQL_ROOT_PASSWORD=rootpass test-db
