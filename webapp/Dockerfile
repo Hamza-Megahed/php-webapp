@@ -5,7 +5,6 @@ RUN /usr/sbin/a2dismod 'mpm_*' && /usr/sbin/a2enmod mpm_prefork
 
 #exposing port 80 and 443 for SSL/TLS 
 EXPOSE 80
-EXPOSE 443
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 
