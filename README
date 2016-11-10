@@ -2,7 +2,7 @@
 ==========
 Building Mysql
 ==========
-$ docker build -t test-db
+$ docker build -t test-db .
 
 $ docker run --name database -e MYSQL_ROOT_PASSWORD=rootpass -d test-db
 
@@ -10,9 +10,9 @@ $ docker run --name database -e MYSQL_ROOT_PASSWORD=rootpass -d test-db
 Building apache+php
 ==========
 
-$ docker build -t test-webserver
+$ docker build -t test-webserver .
 
-$ docker run --name webserver -p 80:80 -d 
+$ docker run --name webserver -p 80:80 -d test-webserver
 
 ==========
 run apache+php with php files and bind it with mysql
