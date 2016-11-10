@@ -1,4 +1,4 @@
 FROM mysql:latest
-# copy the fedult database file to import it when this image initiat 
+# copy database file to import it when this image initiated
 ADD electronics.sql /docker-entrypoint-initdb.d
 
