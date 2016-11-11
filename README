@@ -29,3 +29,4 @@ Go to php-webapp file
 $ docker-compose up
 
 
+starting WebApp http://localhost/php
