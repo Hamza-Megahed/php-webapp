@@ -1,6 +1,4 @@
 ---
-#ansible-playbook install-docker.yml --ask-sudo-pass
-
 - hosts: webserver
   sudo: yes
   tasks:
