@@ -30,3 +30,10 @@ $ docker-compose up
 
 
 starting WebApp http://localhost/php
+
+login:
++----+-----------+----------+
+| id | user_name | password |
++----+-----------+----------+
+|  1 | bob       | mouse    |
++----+-----------+----------+
