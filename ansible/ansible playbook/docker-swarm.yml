@@ -1,0 +1,11 @@
+---
+- hosts: webserver
+  tasks:
+  - name: Start Mysql server on docker swarm
+    command: /usr/bin/docker service create --name mysql --replicas 1 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=rootpass --network mynet test-db
+
+  - name: Start php-webserver on docker swarm
+    command: /usr/bin/docker service create --name webserver --replicas 1 -p 80:80 --network mynet test-webserver-swarm
+ 
+
+ 
