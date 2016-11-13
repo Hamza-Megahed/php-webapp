@@ -1,0 +1,7 @@
+---
+MYSQL_ROOT_PASSWORD: rootpass
+database_image: test-db
+webserver_image: test-webserver
+source: /home/nonroot/webapp/webapp/
+doc_root: /var/www/html/
+link_name: mysql

@@ -1,0 +1,21 @@
+---
+- name: starting database server
+  docker:
+      name: "{{ link_name }}"
+      image: "{{ database_image }}"
+      state: started
+      ports:
+      - "3306:3306"
+      env:
+        MYSQL_ROOT_PASSWORD={{ MYSQL_ROOT_PASSWORD }}
+- name: starting webserver
+  docker:
+      name: webserver
+      image: "{{ webserver_image }}"
+      state: started
+      links:
+      - "{{ link_name }}:database"
+      volumes:
+      - "{{ source }}:{{ doc_root }}"
+      ports:
+      - 80:80

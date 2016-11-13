@@ -1,0 +1,24 @@
+---
+- hosts: webserver
+  tasks:
+
+  - name: starting database server
+    docker:
+      name: mysql
+      image: test-db
+      state: started
+      ports:
+      - "3306:3306"
+      env:
+        MYSQL_ROOT_PASSWORD=rootpass
+  - name: starting webserver
+    docker:
+      name: webserver
+      image: test-webserver
+      state: started
+      links:
+      - mysql:database
+      volumes:
+      - /home/nonroot/webapp/webapp/:/var/www/html/
+      ports:
+      - 80:80
