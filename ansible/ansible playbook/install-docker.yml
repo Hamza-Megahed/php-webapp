@@ -1,0 +1,21 @@
+---
+- hosts: webserver
+  tasks:
+  - name: Update repositories cache
+    apt:
+     update_cache: yes
+
+  - name: install "docker-engine" package
+    apt:
+     name: docker-engine
+     state: latest
+    notify:
+    - Start docker
+  handlers:
+  - name: Start docker
+    service: name=docker state=started
+
+
+ 
+
+ 

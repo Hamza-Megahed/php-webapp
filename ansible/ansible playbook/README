@@ -1,3 +1,7 @@
 This how to start php-webserver and database server using ansible playbook
 
 ansible-playbook php-webserver.yml
+
+To install and start Docker engine on ubuntu 
+
+ansible-playbook install-docker.yml
