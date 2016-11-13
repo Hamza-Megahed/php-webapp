@@ -1,11 +1,14 @@
 ---
+#ansible-playbook install-docker.yml --ask-sudo-pass
+
 - hosts: webserver
+  sudo: yes
   tasks:
   - name: Update repositories cache
     apt:
      update_cache: yes
 
-  - name: install "docker-engine" package
+  - name: Remove "docker-engine" package
     apt:
      name: docker-engine
      state: latest
