@@ -1,0 +1,36 @@
+1- initialization {on the manager):
+====
+docker swarm init --advertise-addr 192.168.99.100
+--------------------------------
+2- get token that will be add in workers node 
+====
+docker swarm join-token worker
+--------------------------------
+3- add token to workers node
+====
+docker swarm join \
+    --token SWMTKN-1-49nj1cmql0jkz5s954yi3oex3nedyz0fb0xx14ie39trti4wxv-8vxv8rssmk743ojnwacrr2e7c \
+    192.168.99.100:2377
+--------------------------------
+4- start listening on node
+====
+append in /etc/default/docker
+DOCKER_OPTS="-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
+restart Docker daemon
+--------------------------------
+5- list node on manager 
+====
+docker node ls
+--------------------------------
+6- Create swarm network
+====
+docker network create --driver overlay mynet
+--------------------------------
+7- start Mysql image 
+====
+docker service create --name mysql --replicas 1 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=rootpass --network mynet test-db
+--------------------------------
+8- start webserver image 
+====
+docker service create --name webserver --replicas 1 -p 80:80 --network mynet test-webserver-swarm
+--------------------------------
