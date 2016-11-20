@@ -1,3 +1,3 @@
 <?php
-        $site_title = "new title";
+        $site_title = "Eds Electronics Inventory";
 ?>
